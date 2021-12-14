@@ -1,0 +1,41 @@
+<div class="map-container">
+    <div style="max-height: 45rem; overflow-y: auto;">
+        <div class="card">
+            <h2 class="text-center">Realtime Data</h2>
+            <div class="card-body">
+                <div class="container-fluid table-responsive">
+                    <table class="table table-dark table-striped table-bordered">
+                        <thead>
+                            <tr style="position: sticky; position: -webkit-sticky; top: 0;">
+                                <th>Sr. No.</th>
+                                <th>Heart Rate</th>
+                                <th>SpO2</th>
+                                <th>Latitude</th>
+                                <th>Longitude</th>
+                                <th>Temperature</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngFor='let items of tabledata; let i = index;'>
+                                <tr *ngIf='i < 100'>
+                                    <td>{{i+1}}</td>
+                                    <td>{{items.Heart_Rate_in_BPM}}</td>
+                                    <td>{{items.Spo2}}</td>
+                                    <td>{{items.location_lattitude}}</td>
+                                    <td>{{items.location_longitude}}</td>
+                                    <td>{{items.temperature}}</td>
+                                    <td>{{items.time}}</td>
+                                </tr>
+                            </ng-container>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2 class="text-center m-3">Location of Cattle</h2>
+    <div class="map-frame">
+        <div id="map"></div>
+    </div>
+</div>
